@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <script src="scripts.js"></script>
+  </head>
+  <body>
+    <h1>home</h1>
+
+    <!-- Generate a button per note -->
+    <script>
+        // Fetch notes from notes.json and create buttons for each note
+        fetch('notes.json')
+            .then(response => response.json())
+            .then(data => {
+                // Iterate through each note and create a button
+                Object.keys(data).forEach(note => {
+                    const button = document.createElement('button');
+                    button.textContent = note;
+                    
+                    // Set onclick event to play the frequency of the note
+                    button.onclick = () => playFrequency(data[note]);
+
+                    // Append the button to the document body
+                    document.body.appendChild(button);
+                });
+            });
+    </script>
+
+  </body>
+</html>
