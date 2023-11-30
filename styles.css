@@ -1,0 +1,16 @@
+.piano {
+    margin: 0 auto;
+    border: solid black 2px;
+    width: fit-content;
+}
+
+.key {
+    background-color: ivory;
+    height: 160px;
+    width: 40px;
+    border: none;
+}
+
+.key:hover {
+    filter: brightness(90%);
+}
