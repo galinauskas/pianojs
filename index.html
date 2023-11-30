@@ -17,8 +17,12 @@
                     // Iterate through each note and create a button
                     Object.keys(data).forEach(note => {
                         const button = document.createElement('button');
-                        button.textContent = note;
-                        button.className = 'key'; // Add class "key" to each button
+                        if (note.includes('#')) {
+                          button.className = 'sharp-key'; // Add class "sharp-key" to notes with #
+                        } else {
+                            button.textContent = note;
+                            button.className = 'key'; // Add class "key" to notes without #
+                        }
                         
                         // Set onclick event to play the frequency of the note
                         button.onclick = () => playFrequency(data[note]);
