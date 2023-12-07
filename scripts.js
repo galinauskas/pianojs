@@ -1,22 +1,31 @@
 function playFrequency(frequency) {
-    // init audio context
-    const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+  // init audio context
+  const audioContext = new (window.AudioContext || window.webkitAudioContext)();
 
-    // init oscillator
-    const osc = audioContext.createOscillator();
+  // init oscillator
+  const osc = audioContext.createOscillator();
 
-    // note setup
-    osc.type = 'sine';
-    osc.frequency.setValueAtTime(frequency, audioContext.currentTime);
-    osc.connect(audioContext.destination);
-    osc.start();
-    
-    // stop notes after 1 second
-    osc.stop(1);
+  // note setup
+  osc.type = getWaveShape();
+  osc.frequency.setValueAtTime(frequency, audioContext.currentTime);
+  osc.connect(audioContext.destination);
+  osc.start();
+  
+  // stop notes after 1 second
+  osc.stop(1);
+}
 
-    /*
-        TODO: add ability for user to change wave shape
-    */
+function getWaveShape() {
+  // Get the selected radio button value
+  const form = document.querySelector('.wave-shape');
+  const selectedInput = form.querySelector('input[name="waveShape"]:checked');
+  
+  // If no radio button is selected, default to 'sine'
+  const selectedValue = selectedInput ? selectedInput.value : 'sine';
+  // Print the selected radio button value
+  console.log('Selected Wave Shape:', selectedValue); 
+  
+  return selectedValue;
 }
 
 // Fetch notes from notes.json and create buttons for each note
@@ -53,3 +62,7 @@ fetch('notes.json')
     document.querySelector('.piano').appendChild(button);
   });
 });
+
+
+
+
