@@ -13,4 +13,8 @@ function playFrequency(frequency) {
     
     // stop notes after 1 second
     osc.stop(1);
+
+    /*
+        TODO: add ability for user to change wave shape
+    */
 }
