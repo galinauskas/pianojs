@@ -5,4 +5,4 @@ This is a piano project written in JavaScript. It utilizes the Audio Context Web
 HTML, CSS, JavaScript
 
 ## Latest Screenshot
-![Version 1](screenshots/v1.png "Version 1")
+![Version 1](screenshots/v2.png "Version 2")
