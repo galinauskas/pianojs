@@ -46,3 +46,13 @@
 .sharp-key:hover {
     background-color: rgb(56, 56, 56);
 }
+
+.wave-shape {
+    margin: auto;
+    padding: 20px;
+    width: 500px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
